@@ -1,73 +1,149 @@
-# Welcome to your Lovable project
+# Loop Closing
 
-## Project info
+> Close your open loops. Fast. Deliberate. No fluff.
 
-**URL**: https://lovable.dev/projects/8d81cf71-7cbc-43b7-b88d-056d8f1f28fd
+## What is Loop Closing?
 
-## How can I edit this code?
+Loop Closing is a brutalist productivity tool designed to help you capture, confront, and close your mental "open loops" - those unfinished tasks, ideas, and promises that drain your mental bandwidth.
 
-There are several ways of editing your application.
+**Philosophy:**
+- No gamification
+- No streaks
+- No artificial dopamine hits
+- Just you, your commitments, and the satisfaction of finishing what you started
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/8d81cf71-7cbc-43b7-b88d-056d8f1f28fd) and start prompting.
+- **Fast Capture**: Brain dump everything with a simple, keyboard-first interface
+- **Deliberate Review**: See all your open loops in one place - no hiding
+- **Intentional Closure**: Mark tasks complete and feel the weight lift
+- **Offline-First**: All data stored locally in your browser
+- **Keyboard Shortcuts**: Navigate entirely with your keyboard
+- **Brutalist Design**: Intentionally raw, asymmetric, anti-polish aesthetic
 
-Changes made via Lovable will be committed automatically to this repo.
+## Keyboard Shortcuts
 
-**Use your preferred IDE**
+| Key | Action |
+|-----|--------|
+| `?` | Show/hide keyboard shortcuts |
+| `N` or `Enter` | Focus input to add new loop |
+| `Escape` | Close dialogs or clear input |
+| `Space` | Toggle loop completion (when focused) |
+| `Delete` | Delete loop (when focused) |
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **React** + **TypeScript** - Type-safe component architecture
+- **Vite** - Lightning-fast build tool
+- **Tailwind CSS** - Brutalist design system with semantic tokens
+- **Shadcn/UI** - Customized, accessible component primitives
+- **Lucide React** - Clean, minimal icons
+- **LocalStorage** - Offline-first data persistence
 
-Follow these steps:
+## Design System
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+The app uses a brutalist/retro design language:
+
+- **Fonts**: Space Mono (monospace)
+- **Colors**: Black, white, yellow accents, red for emphasis
+- **Layout**: Asymmetric, left-aligned, visible grid overlay
+- **Borders**: 4px hard borders, no rounded corners
+- **Shadows**: Hard drop shadows for depth
+- **Typography**: Heavy, uppercase, tracking-wide
+
+All styles are semantic tokens defined in `src/index.css` and `tailwind.config.ts` - never ad-hoc classes in components.
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ui/
+│   │   └── brutalist-button.tsx    # Custom button component
+│   ├── App.tsx                      # Main app container
+│   ├── GridOverlay.tsx              # Brutalist grid background
+│   ├── Landing.tsx                  # Landing page with manifesto
+│   ├── LoopInput.tsx                # Input field for new loops
+│   ├── LoopItem.tsx                 # Single loop item
+│   ├── LoopList.tsx                 # List of loops (open/closed)
+│   └── ShortcutsHelp.tsx            # Keyboard shortcuts modal
+├── hooks/
+│   └── useLoops.ts                  # Loop state management + localStorage
+├── types/
+│   └── loop.ts                      # Loop TypeScript interface
+├── pages/
+│   └── Index.tsx                    # Entry page
+└── index.css                        # Design system tokens
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
+
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to project
+cd loop-closing
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build for Production
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Accessibility
 
-## What technologies are used for this project?
+Loop Closing is built with accessibility in mind:
 
-This project is built with:
+- ✅ All interactive elements are keyboard-reachable
+- ✅ ARIA labels for icon buttons
+- ✅ 4.5:1 contrast ratio maintained
+- ✅ Focus indicators on all interactive elements
+- ✅ Semantic HTML structure
+- ✅ Help panel accessible with `?` key
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Testing
 
-## How can I deploy this project?
+To run tests:
 
-Simply open [Lovable](https://lovable.dev/projects/8d81cf71-7cbc-43b7-b88d-056d8f1f28fd) and click on Share -> Publish.
+```bash
+npm test
+```
 
-## Can I connect a custom domain to my Lovable project?
+Test coverage includes:
+- Loop storage logic (add, toggle, delete)
+- Component rendering
+- Keyboard shortcuts
+- LocalStorage persistence
 
-Yes, you can!
+## Contributing
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+This is a minimal MVP. If you'd like to extend it:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Keep the brutalist aesthetic
+2. Maintain keyboard-first UX
+3. No feature bloat - less is more
+4. Write tests for new functionality
+
+## License
+
+MIT
+
+---
+
+**Built with Lovable** - [lovable.dev](https://lovable.dev)
