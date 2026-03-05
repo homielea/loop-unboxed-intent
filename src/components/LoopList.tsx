@@ -5,11 +5,13 @@ interface LoopListProps {
   loops: Loop[];
   onToggle: (id: string) => void;
   onDelete: (id: string) => void;
+  onFocus?: (id: string) => void;
+  onUnfocus?: (id: string) => void;
   title: string;
   emptyMessage: string;
 }
 
-const LoopList = ({ loops, onToggle, onDelete, title, emptyMessage }: LoopListProps) => {
+const LoopList = ({ loops, onToggle, onDelete, onFocus, onUnfocus, title, emptyMessage }: LoopListProps) => {
   return (
     <section className="mb-12">
       <div className="mb-6 inline-block border-4 border-primary bg-secondary px-4 py-2">
@@ -30,6 +32,9 @@ const LoopList = ({ loops, onToggle, onDelete, title, emptyMessage }: LoopListPr
               loop={loop}
               onToggle={() => onToggle(loop.id)}
               onDelete={() => onDelete(loop.id)}
+              onFocus={onFocus ? () => onFocus(loop.id) : undefined}
+              onUnfocus={onUnfocus ? () => onUnfocus(loop.id) : undefined}
+              showCategory
             />
           ))}
         </div>
